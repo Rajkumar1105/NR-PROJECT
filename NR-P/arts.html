@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NR Arts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("https://www.transparenttextures.com/patterns/painted-wall.png");
+      background-color: #fff6f0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header {
+      background: linear-gradient(135deg, #d16ba5, #c777b9, #ba83ca, #aa8fd8);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      animation: slideDown 1s ease-out;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    nav button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #a64ca6;
+      color: white;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+
+    nav button:hover {
+      transform: scale(1.1);
+      background: #8b2e8b;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    #categories {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #categories button {
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      font-weight: bold;
+      animation: bounceIn 1s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    #categories button:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #ff5a7d, #ff6fa1);
+    }
+
+    .gallery {
+      text-align: center;
+      margin: 40px 20px;
+    }
+
+    .gallery img {
+      width: 175px;
+      height: 175px;
+      object-fit: cover;
+      object-position: center;
+      margin: 15px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+      margin-top: 100px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* Popup Styles */
+.popup-overlay {
+  display: none; /* hidden initially */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+}
+
+
+    .popup-box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+      animation: scaleUp 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .popup-box h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .popup-box button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .popup-box .yes-btn {
+      background: #28a745;
+      color: white;
+    }
+
+    .popup-box .yes-btn:hover {
+      background: #218838;
+      transform: scale(1.1);
+    }
+
+    .popup-box .no-btn {
+      background: #dc3545;
+      color: white;
+    }
+
+    .popup-box .no-btn:hover {
+      background: #c82333;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      80% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Welcome to NR Arts 🎨
+  </header>
+
+  <nav>
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="showCategories()">Categories</button>
+    <button onclick="location.href='#footer'">Contact Info</button>
+  </nav>
+
+  <!-- Categories Section -->
+  <div id="categories">
+    <h2>Categories</h2>
+    <button onclick="showMehandi()">✨ Mehandi Arts ✨</button>
+  </div>
+
+  <!-- Mehandi Gallery -->
+  <div class="gallery" id="mehandiGallery" style="display:none;">
+    <h2>Mehandi Arts Collection</h2>
+    <img src="pictures/arts-1.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-2.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-3.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-4.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-5.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-6.png" alt="Mehandi 1" onclick="showPopup(this)">
+        <img src="pictures/arts-7.png" alt="Mehandi 1" onclick="showPopup(this)">
+  </div>
+
+  <!-- Custom Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <h3>Do you want to know more about this art?</h3>
+      <button class="yes-btn" onclick="goToWhatsApp()">Yes</button>
+      <button class="no-btn" onclick="closePopup()">No</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>Website owned by <strong>Nithya</strong>. All rights reserved © 2025.</p>
+  </footer>
+
+  <script>
+    function showCategories() {
+      document.getElementById("categories").style.display = "block";
+    }
+
+    function showMehandi() {
+      document.getElementById("mehandiGallery").style.display = "block";
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function showPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function goToWhatsApp() {
+  const message = "Hi, I want to know more about this Mehandi Art!";
+  const phone = "917680060323"; // without '+' and spaces
+  window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NR CRAFTS AND DESIGNS</title>
+  <style>
+    /* Page background with gradient */
+    body {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+       outline: none;
+      user-select: none;
+    }
+
+    /* Decorative corner designs */
+    .corner {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 0;
+    }
+    .top-left { top: -50px; left: -50px; }
+    .top-right { top: -50px; right: -50px; }
+    .bottom-left { bottom: -50px; left: -50px; }
+    .bottom-right { bottom: -50px; right: -50px; }
+
+    /* Container styling */
+    .icon-container {
+      display: inline-block;
+      padding: 50px;
+      margin: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hover effect */
+    .icon-container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    /* Default icon size - equal for both images */
+    .icons {
+      width: 400px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    /* Page title styling */
+    h1 {
+      margin-top: 50px;
+      color: #333;
+      font-size: 32px;
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      line-height: 1.4;
+      font-weight: 500;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    /* Footer styling */
+    footer.contact-section {
+      margin-top: 50px;  /* ensures footer is below images */
+      background-color: rgba(255,255,255,0.9);
+      padding: 40px 20px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: left;
+      max-width: 800px;
+      z-index: 1;
+      position: relative;
+    }
+    .instagram,.Mail{
+      display: inline-block;
+    }
+    .ig-logo,.mail-icon{
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+
+    footer h2 {
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    footer p, footer a {
+      font-size: 18px;
+      color: #555;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    footer a:hover {
+      color: #000;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 900px) {
+      .icons {
+        width: 300px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      footer {
+        max-width: 90%;
+      }
+    }
+    
+
+    @media screen and (max-width: 600px) {
+      .icons {
+        width: 250px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      .icon-container {
+        padding: 30px;
+        margin: 20px;
+      }
+      footer {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+
+  <!-- Anime.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+
+  <!-- Corner designs -->
+  <div class="corner top-left"></div>
+  <div class="corner top-right"></div>
+  <div class="corner bottom-left"></div>
+  <div class="corner bottom-right"></div>
+
+  <!-- Page Title -->
+  <h1>Transform your ideas into reality with NR Crafts & Arts – where imagination meets craftsmanship</h1>
+
+  <!-- Images -->
+  <div class="icon-container">
+    <a href="craftsexp.html">
+    <img class="icons" src="pictures/crafts.png">
+    </a>
+  </div>
+  <div class="icon-container">
+    <a href="arts.html">
+    <img class="icons" src="pictures/arts.jpeg">
+    </a>
+  </div>
+
+  <!-- Footer with contact info -->
+  <footer class="contact-section">
+    <h2 style="text-align: center;">Contact Us</h2>
+    <p><strong>Address:</strong> Maruthinagar, Karimnagar, Telangana</p>
+    <p><strong>Phone:</strong> +91 84650 13702</p>
+    <div class="instagram">
+      <a href="https://www.instagram.com/nr__crafts?igsh=MTBzdmV1NWZoazR5aA==">
+        <img class="ig-logo" src="pictures/ig-logo-final.jpg">
+        </a>
+    </div>
+    <div class="Mail">
+        <img class="mail-icon" src="pictures/mail-logo.jpg">
+    </div>
+  </footer>
+
+  <script>
+    // Animate images on page load
+    anime({
+      targets: '.icons',
+      translateY: [-100, 0],
+      opacity: [0, 1],
+      scale: [0.5, 1],
+      delay: anime.stagger(500),
+      duration: 2000,
+      easing: 'easeOutElastic(1, .8)'
+    });
+
+    // Animate footer
+    anime({
+      targets: '.contact-section',
+      translateY: [100, 0], // slide up from below
+      opacity: [0, 1],
+      duration: 2000,
+      delay: 1500, // starts after images
+      easing: 'easeOutExpo'
+    });
+  </script>
+
+</body>
+</html>
